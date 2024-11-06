@@ -52,7 +52,7 @@ public class ListCategoriesServlet extends HttpServlet {
     }
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         if (connection == null) {
             resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Database connection not available");
@@ -66,18 +66,8 @@ public class ListCategoriesServlet extends HttpServlet {
                 resp.setStatus(HttpServletResponse.SC_NO_CONTENT);
                 return;
             }
-
-            resp.setContentType("text/html");
-            PrintWriter writer = resp.getWriter();
-            writer.println("<html><body>");
-            writer.println("<h1>Lista de categorias</h1>");
-            writer.println("<ul>");
-
-            for (String category : categories) {
-                writer.println("<li>" + category + "</li>");
-            }
-            writer.println("</ul>");
-            writer.println("</body></html>");
+            req.setAttribute("categories", categories);
+            req.getRequestDispatcher("/WEB-INF/views/categories.jsp").forward(req, resp);
 
         } catch (SQLException e) {
             resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "An error occurred while accessing categories");
