@@ -11,20 +11,22 @@
 <div class="container mt-5">
     <h1 class="text-center mb-4">Lista de Categorías</h1>
 
-    <!-- Table with header row -->
     <table class="table table-bordered">
-        <!-- Table Header Row -->
         <thead>
         <tr>
             <th scope="col" class="font-weight-bold text-center">Categorías</th>
-            <th scope="col" class="font-weight-bold text-center">Nombre de la categoría</th>
+            <th scope="col" class="font-weight-bold text-center">Nombre</th>
+            <th scope="col" class="font-weight-bold text-center">Descripción</th>
+            <th scope="col" class="font-weight-bold text-center">Orden</th>
         </tr>
         </thead>
         <tbody>
         <c:forEach var="category" items="${categories}" varStatus="i">
             <tr>
                 <td class="text-center">Categoría ${i.count}</td>
-                <td class="text-center">${category}</td>
+                <td class="text-center">${category.name}</td>
+                <td class="text-center">${category.description}</td>
+                <td class="text-center">${category.order}</td>
             </tr>
         </c:forEach>
         </tbody>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="SqlDialectMappings">
-    <file url="file://$PROJECT_DIR$/src/main/java/pe/edu/tecsup/mod02_lab02/ListCategoriesServlet.java" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/pe/edu/tecsup/mod02_lab02/repositories/CategoryRepository.java" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/pe/edu/tecsup/mod02_lab02/servlets/CategoryListServlet.java" dialect="GenericSQL" />
   </component>
 </project>
